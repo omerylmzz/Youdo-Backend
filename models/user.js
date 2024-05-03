@@ -14,7 +14,7 @@ const schema = new mongoose.Schema({
 });
 
 schema.methods.createAuthToken = function() {
-    return jwt.sign({USER_ID: this._id}, "PRIVATE_KEY");
+    return jwt.sign({USER_ID: this._id}, process.env.JWT_TOKEN_KEY);
 }
 
 module.exports = mongoose.model("Users", schema);
