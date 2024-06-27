@@ -6,6 +6,8 @@ This project represents the back-end of a simple to-do application developed usi
 
 ## Features
 
+- User login registration.
+- Add, update and delete tasks.
 - [Node](https://nodejs.org/en) to run javascript code on the server side.
 - [Express](https://expressjs.com) as the application framework.
 - [Nodemon](https://www.npmjs.com/package/nodemon) to refresh the server.
@@ -80,186 +82,186 @@ The REST API to the example app is described below.
 
 #### Body
 
-```http
-  {
-    "MAIL": "example@mail.com",
-    "PASSWORD": "123456"
-  }
+```json
+{
+  "MAIL": "example@mail.com",
+  "PASSWORD": "123456"
+}
 ```
 
 #### Request
 
 `POST`
 
-```http
-  http://localhost:3000/user/signin
+```bash
+http://localhost:3000/user/signin
 ```
 
 #### Response
 
-```http
-  {
-    "SUCCESSFULL": true,
-    "MESSAGE": "Successfully logged in",
-    "ACCESS_TOKEN": "eyJraDKSDiJvsd32kSdslgdssdaJDSLdaf2LrsfKa1"
-  }
+```json
+{
+  "SUCCESSFUL": true,
+  "MESSAGE": "Successfully logged in",
+  "ACCESS_TOKEN": "eyJraDKSDiJvsd32kSdslgdssdaJDSLdaf2LrsfKa1"
+}
 ```
 
 ### Sign Up
 
 #### Body
 
-```http
-  {
-    "NAME": "Name",
-    "SURNAME": "Surname",
-    "MAIL": "example@mail.com",
-    "PASSWORD": "123456"
-  }
+```json
+{
+  "NAME": "Name",
+  "SURNAME": "Surname",
+  "MAIL": "example@mail.com",
+  "PASSWORD": "123456"
+}
 ```
 
 #### Request
 
 `POST`
 
-```http
-  http://localhost:3000/user/signup
+```bash
+http://localhost:3000/user/signup
 ```
 
 #### Response
 
-```http
-  {
-    "SUCCESSFULL": true,
-    "MESSAGE": "User created successfully"
-  }
+```json
+{
+  "SUCCESSFUL": true,
+  "MESSAGE": "User created successfully"
+}
 ```
 
 ### Create a Task
 
 #### Headers
 
-```http
-  {
-    "Content-Type": "application/json",
-    "X-Auth-User-Token": "eyJraDKSDiJvsd32kSdslgdssdaJDSLdaf2LrsfKa1"
-  }
+```json
+{
+  "Content-Type": "application/json",
+  "X-Auth-User-Token": "eyJraDKSDiJvsd32kSdslgdssdaJDSLdaf2LrsfKa1"
+}
 ```
 
 #### Body
 
-```http
-  {
-    "TITLE": "Title",
-    "TASK": "Task",
-    "DATE": "YYYY-MM-DD",
-    "TIME": "00:00:00",
-    "REMINDER": true,
-    "LABEL": "#E72929"
-  }
+```json
+{
+  "TITLE": "Title",
+  "TASK": "Task",
+  "DATE": "YYYY-MM-DD",
+  "TIME": "00:00:00",
+  "REMINDER": true,
+  "LABEL": "#E72929"
+}
 ```
 
 #### Request
 
 `POST`
 
-```http
-  http://localhost:3000/task/create
+```bash
+http://localhost:3000/task/create
 ```
 
 #### Response
 
-```http
-  {
-    "SUCCESSFULL": true,
-    "MESSAGE": "Task successfully created"
-  }
+```json
+{
+  "SUCCESSFUL": true,
+  "MESSAGE": "Task successfully created"
+}
 ```
 
 ### Daily Tasks
 
 #### Headers
 
-```http
-  {
-    "Content-Type": "application/json",
-    "X-Auth-User-Token": "eyJraDKSDiJvsd32kSdslgdssdaJDSLdaf2LrsfKa1"
-  }
+```json
+{
+  "Content-Type": "application/json",
+  "X-Auth-User-Token": "eyJraDKSDiJvsd32kSdslgdssdaJDSLdaf2LrsfKa1"
+}
 ```
 
 #### Request
 
 `GET`
 
-```http
-  http://localhost:3000/task/daily
+```bash
+http://localhost:3000/task/daily
 ```
 
 #### Response
 
-```http
-  {
-    "SUCCESSFULL": true,
-    "MESSAGE": "Daily tasks listed",
-    "DATA":[
-        {
-            "AUTHOR_ID": "66796a536c7114a480a0c421",
-            "TITLE": "Title",
-            "TASK": "Task",
-            "DATE": "YYYY-MM-DD",
-            "TIME": "00:00:00",
-            "REMINDER": true,
-            "LABEL": "#E72929",
-            "COMPLETED": false
-        },
-        {
-            ...
-        }
-    ]
-  }
+```json
+{
+  "SUCCESSFUL": true,
+  "MESSAGE": "Daily tasks listed",
+  "DATA":[
+    {
+      "AUTHOR_ID": "66796a536c7114a480a0c421",
+      "TITLE": "Title",
+      "TASK": "Task",
+      "DATE": "YYYY-MM-DD",
+      "TIME": "00:00:00",
+      "REMINDER": true,
+      "LABEL": "#E72929",
+      "COMPLETED": false
+    },
+    {
+      ...
+    }
+  ]
+}
 ```
 
 ### All Tasks
 
 #### Headers
 
-```http
-  {
-    "Content-Type": "application/json",
-    "X-Auth-User-Token": "eyJraDKSDiJvsd32kSdslgdssdaJDSLdaf2LrsfKa1"
-  }
+```json
+{
+  "Content-Type": "application/json",
+  "X-Auth-User-Token": "eyJraDKSDiJvsd32kSdslgdssdaJDSLdaf2LrsfKa1"
+}
 ```
 
 #### Request
 
 `GET`
 
-```http
-  http://localhost:3000/task/all
+```bash
+http://localhost:3000/task/all
 ```
 
 #### Response
 
-```http
-  {
-    "SUCCESSFULL": true,
-    "MESSAGE": "All tasks listed",
-    "DATA":[
-        {
-            "AUTHOR_ID": "66796a536c7114a480a0c421",
-            "TITLE": "Title",
-            "TASK": "Task",
-            "DATE": "YYYY-MM-DD",
-            "TIME": "00:00:00",
-            "REMINDER": true,
-            "LABEL": "#E72929",
-            "COMPLETED": false
-        },
-        {
-            ...
-        }
-    ]
-  }
+```json
+{
+  "SUCCESSFUL": true,
+  "MESSAGE": "All tasks listed",
+  "DATA":[
+    {
+      "AUTHOR_ID": "66796a536c7114a480a0c421",
+      "TITLE": "Title",
+      "TASK": "Task",
+      "DATE": "YYYY-MM-DD",
+      "TIME": "00:00:00",
+      "REMINDER": true,
+      "LABEL": "#E72929",
+      "COMPLETED": false
+    },
+    {
+      ...
+    }
+  ]
+}
 ```
 
 ### Update Task
@@ -268,17 +270,17 @@ The REST API to the example app is described below.
 
 `PATCH`
 
-```http
-  http://localhost:3000/task/update/:id
+```bash
+http://localhost:3000/task/update/:id
 ```
 
 #### Response
 
-```http
-  {
-    "SUCCESSFULL": true,
-    "MESSAGE": "Task successfully updated"
-  }
+```json
+{
+  "SUCCESSFUL": true,
+  "MESSAGE": "Task successfully updated"
+}
 ```
 
 ### Delete Task
@@ -287,88 +289,88 @@ The REST API to the example app is described below.
 
 `DELETE`
 
-```http
-  http://localhost:3000/task/delete/:id`
+```bash
+http://localhost:3000/task/delete/:id`
 ```
 
 #### Response
 
-```http
-  {
-    "SUCCESSFULL": true,
-    "MESSAGE": "Task successfully deleted"
-  }
+```json
+{
+  "SUCCESSFUL": true,
+  "MESSAGE": "Task successfully deleted"
+}
 ```
 
 ### Change E-mail Address
 
 #### Headers
 
-```http
-  {
-    "Content-Type": "application/json",
-    "X-Auth-User-Token": "eyJraDKSDiJvsd32kSdslgdssdaJDSLdaf2LrsfKa1"
-  }
+```json
+{
+  "Content-Type": "application/json",
+  "X-Auth-User-Token": "eyJraDKSDiJvsd32kSdslgdssdaJDSLdaf2LrsfKa1"
+}
 ```
 
 #### Body
 
-```http
-  {
-    "MAIL": "example@mail.com"
-  }
+```json
+{
+  "MAIL": "example@mail.com"
+}
 ```
 
 #### Request
 
 `POST`
 
-```http
-  http://localhost:3000/user/change/mail
+```bash
+http://localhost:3000/user/change/mail
 ```
 
 #### Response
 
-```http
-  {
-    "SUCCESSFULL": true,
-    "MESSAGE": "E-mail address successfully changed"
-  }
+```json
+{
+  "SUCCESSFUL": true,
+  "MESSAGE": "E-mail address successfully changed"
+}
 ```
 
 ### Change Password
 
 #### Headers
 
-```http
-  {
-    "Content-Type": "application/json",
-    "X-Auth-User-Token": "eyJraDKSDiJvsd32kSdslgdssdaJDSLdaf2LrsfKa1"
-  }
+```json
+{
+  "Content-Type": "application/json",
+  "X-Auth-User-Token": "eyJraDKSDiJvsd32kSdslgdssdaJDSLdaf2LrsfKa1"
+}
 ```
 
 #### Body
 
-```http
-  {
-    "CURRENT_PASSWORD": "123456",
-    "NEW_PASSWORD": "1234567"
-  }
+```json
+{
+  "CURRENT_PASSWORD": "123456",
+  "NEW_PASSWORD": "1234567"
+}
 ```
 
 #### Request
 
 `POST`
 
-```http
-  http://localhost:3000/user/change/password
+```bash
+http://localhost:3000/user/change/password
 ```
 
 #### Response
 
-```http
-  {
-    "SUCCESSFULL": true,
-    "MESSAGE": "Password successfully changed"
-  }
+```json
+{
+  "SUCCESSFUL": true,
+  "MESSAGE": "Password successfully changed"
+}
 ```
