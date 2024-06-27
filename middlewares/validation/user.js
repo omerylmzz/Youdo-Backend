@@ -38,4 +38,39 @@ const validateUserSignIn = (req, res, next) => {
 
 }
 
-module.exports = {validateUserSignUp, validateUserSignIn};
+const changeMailObject = (data) => {
+
+    const schema = new Joi.object({
+        MAIL: Joi.string().trim().email().required()
+    });
+
+    return schema.validate(data);
+}
+
+const validateChangeMail = (req, res, next) => {
+
+    const { error } = changeMailObject(req.body);
+
+    error ? res.send({SUCCESSFUL: false, MESSAGE: error.details[0].message}) : next();
+
+}
+
+const changePasswordObject = (data) => {
+
+    const schema = new Joi.object({
+        CURRENT_PASSWORD: Joi.string().trim().min(6).max(24).required(),
+        NEW_PASSWORD: Joi.string().trim().min(6).max(24).required()
+    });
+
+    return schema.validate(data);
+}
+
+const validateChangePassword = (req, res, next) => {
+
+    const { error } = changePasswordObject(req.body);
+
+    error ? res.send({SUCCESSFUL: false, MESSAGE: error.details[0].message}) : next();
+
+}
+
+module.exports = {validateUserSignUp, validateUserSignIn, validateChangeMail, validateChangePassword};

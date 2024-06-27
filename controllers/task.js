@@ -23,7 +23,7 @@ const createTask = async (req, res) => {
     
     try {
         await task.save();
-        res.send({SUCCESSFUL: true, MESSAGE: "Task successfully created "});
+        res.send({SUCCESSFUL: true, MESSAGE: "Task successfully created"});
     }
     catch(error) {
         console.log(error);
@@ -49,11 +49,9 @@ const getAllTasks = async (req, res) => {
 }
 
 const updateTask = async (req, res) => {
-
-    const { TASK_ID } = req.body;
     
     try {
-        const result = await Task.findByIdAndUpdate({_id: TASK_ID}, {COMPLETED: true});
+        const result = await Task.findByIdAndUpdate({_id: req.params.id}, {COMPLETED: true});
         
         result ? res.send({SUCCESSFUL: true, MESSAGE: "Task successfully updated"}) : res.send({SUCCESSFUL: false, MESSAGE: "Failed to update task"});
     }

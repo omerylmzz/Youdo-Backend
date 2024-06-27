@@ -9,10 +9,7 @@ const schema = new mongoose.Schema({
     DATE:{
         type: Date,
         default: Date.now()
-    },
-    THEME: String,
-    LANGUAGE: String,
-    NOTIFICATION: Boolean
+    }
 });
 
 schema.methods.createAuthToken = function() {
