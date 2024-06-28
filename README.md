@@ -4,10 +4,8 @@
 
 This project represents the back-end of a simple to-do application developed using Node.js. The application allows users to create, update, list, and delete tasks. MongoDB is used as the database to store task data, and Mongoose is utilized to manage database operations. JSON Web Token (JWT) technology is employed for user authentication, and the dotenv library is used for secure management of sensitive data through environment variables. Designed according to RESTful API principles, this back-end can be easily integrated with front-end applications, enabling users to effectively manage their tasks.
 
-## Features
+## Libraries
 
-- User login registration.
-- Add, update and delete tasks.
 - [Node](https://nodejs.org/en) to run javascript code on the server side.
 - [Express](https://expressjs.com) as the application framework.
 - [Nodemon](https://www.npmjs.com/package/nodemon) to refresh the server.
@@ -30,7 +28,7 @@ Clone this repository
 git clone https://github.com/omerylmzz/Youdo-Backend.git
 ```
 
-Install the required packages
+Install the dependencies
 
 ```bash
 npm install
