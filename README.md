@@ -6,7 +6,6 @@ This project represents the back-end of a simple to-do application developed usi
 
 ## Libraries
 
-- [Node](https://nodejs.org/en) to run javascript code on the server side.
 - [Express](https://expressjs.com) as the application framework.
 - [Nodemon](https://www.npmjs.com/package/nodemon) to refresh the server.
 - [Mongoose](https://mongoosejs.com) to interact with MongoDB.
